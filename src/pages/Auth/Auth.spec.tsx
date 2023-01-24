@@ -8,6 +8,7 @@ describe('Example Page', () => {
 
     expect(component).toMatchSnapshot()
   })
+
   it('should be able to render Example text', () => {
     render(<Example />)
 

@@ -2,10 +2,10 @@ import { TextExample } from 'src/components/TextExample/TextExample'
 
 import { Container } from './styles'
 
-export const Example = () => {
+export const Home = () => {
   return (
     <Container>
-      <TextExample>Example</TextExample>
+      <TextExample>Tela Home</TextExample>
     </Container>
   )
 }
