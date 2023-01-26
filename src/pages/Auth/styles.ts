@@ -10,34 +10,47 @@ export const Container = styled.div`
   height: 100vh;
   padding: 20px;
 `
-export const EmployeeDiv = styled.div`
+export const EmployeeForm = styled.form`
   margin-top: 50px;
-  max-width: 1000px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 22px;
 
-  .image {
-    width: 55px;
+  span {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: larger;
+    margin-bottom: -5px;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000,
+      -1px -1px #000, 1px -1px #000, -1px 1px #000;
+    margin-bottom: 3px;
   }
-`
-export const EmployeeItem = styled.div`
-  width: 100%;
-  height: 64px;
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  background-color: white;
-  border-radius: 20px;
-  font-size: x-large;
-  font-weight: 500;
-  font-family: var(--font-default);
 
-  &:hover {
-    filter: brightness(0.8);
+  input {
+    height: 45px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    font-size: larger;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  button {
+    height: 45px;
+    border-radius: 15px;
+    background-color: var(--button-footer);
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-weight: 900;
+    border: none;
     cursor: pointer;
+
+    &:hover {
+      filter: saturate(0.6);
+    }
   }
 `

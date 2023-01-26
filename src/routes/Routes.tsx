@@ -11,7 +11,7 @@ export const Routes = () => {
     <Suspense fallback={<p>carregando</p>}>
       <RoutesReactRouterDom>
         <Route path="/" element={<Auth />} />
-        <Route path="/login" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/404" element={<GenericNotFound />} />
       </RoutesReactRouterDom>
