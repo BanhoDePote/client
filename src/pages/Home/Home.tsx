@@ -3,19 +3,27 @@ import { TextExample } from 'src/components/TextExample/TextExample'
 
 import { Container } from './styles'
 
+export interface EmployeeProps {
+  typeEmployee: 'Garçom' | 'Cozinha' | 'Caixa'
+  nameEmployee: string
+  image: string
+}
+
 export const Home = () => {
-  const nameEmployee = 'Kadson'
+  const nameEmployee = 'SAJIFD'
   const typeEmployee = 'Garçom'
   const image =
     'https://letsenhance.io/static/334225cab5be263aad8e3894809594ce/75c5a/MainAfter.jpg'
 
+  const userInfo: EmployeeProps = {
+    nameEmployee,
+    typeEmployee,
+    image,
+  }
+
   return (
     <Container>
-      <NavBar
-        nameEmployee={nameEmployee}
-        typeEmployee={typeEmployee}
-        image={image}
-      />
+      <NavBar EmployeeProps={userInfo} />
       <TextExample>Tela Home</TextExample>
     </Container>
   )

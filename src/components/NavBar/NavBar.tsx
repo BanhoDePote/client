@@ -1,26 +1,21 @@
-import { ReactNode } from 'react'
+import { EmployeeProps } from 'src/pages/Home/Home'
 import { Container } from './styles'
 
-interface EmployeeProps {
-  typeEmployee: 'Garçom' | 'Cozinha' | 'Caixa'
-  nameEmployee: string
-  image: string
+interface NavBarProps {
+  EmployeeProps: EmployeeProps
 }
 
-export const NavBar = ({
-  typeEmployee,
-  nameEmployee,
-  image,
-}: EmployeeProps) => {
+// eslint-disable-next-line no-shadow
+export const NavBar: React.FC<NavBarProps> = ({ EmployeeProps }) => {
   return (
     <Container>
       <div>
         <h1>BanhoDePote</h1>
         <span>
-          {typeEmployee} {nameEmployee}
+          {EmployeeProps.typeEmployee} {EmployeeProps.nameEmployee}
         </span>
       </div>
-      <img src={image} alt={nameEmployee} />
+      <img src={EmployeeProps.image} alt={EmployeeProps.nameEmployee} />
     </Container>
   )
 }
