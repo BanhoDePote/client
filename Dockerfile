@@ -1,25 +1,15 @@
-## BUILD STAGE
+FROM node:16 as react-build
 
-FROM node:alpine as build
-
-WORKDIR /usr/src/app
-
-COPY package.json yarn.lock ./
-
-RUN NODE_ENV=development yarn install
+# pasta para aonde vai o build
+WORKDIR /app
 
 COPY . .
+RUN npm i
+RUN npm run build
 
-RUN yarn build
+RUN mkdir -p /var/www/html
+RUN mv dist/* /var/www/html
 
-## UP NGINX STAGE
+WORKDIR /
 
-FROM nginx:alpine
-
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-
-COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+RUN rm -rf /app
