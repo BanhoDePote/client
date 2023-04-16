@@ -8,8 +8,12 @@ const Container = styled.div`
   font-size: x-large;
   font-weight: bolder;
   color: var(--red-color);
+  font-family: 'Righteous', cursive;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+  background-color: #b30505;
 `
 
 export const GenericNotFound = () => {
-  return <Container>404 - Not found</Container>
+  return <Container><h1>404 - Not found</h1></Container>
 }

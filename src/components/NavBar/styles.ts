@@ -19,5 +19,7 @@ export const Container = styled.header`
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
+    border: 3px solid #f4f4f4;
+    background-color: #ffffff;
   }
 `

@@ -1,28 +1,39 @@
 import { NavBar } from 'src/components/NavBar/NavBar'
 import { Container } from './styles'
+import { useSelector } from 'react-redux'
+import { User } from 'src/store'
+import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-export interface EmployeeProps {
-  typeEmployee: 'Garçom' | 'Cozinha' | 'Caixa'
-  nameEmployee: string
-  image: string
+interface UserWithProp extends User {
+  user: {
+    name: string;
+    employee: string;
+    // outras propriedades do usuário
+  };
 }
 
 export const Section = ({ children }: any) => {
-  const nameEmployee = 'SAJIFD'
-  const typeEmployee = 'Garçom'
-  const image =
-    'https://letsenhance.io/static/334225cab5be263aad8e3894809594ce/75c5a/MainAfter.jpg'
+  const navigate = useNavigate();
+  const userData = useSelector((state: User) => state?.data?.data);
 
-  const userInfo: EmployeeProps = {
-    nameEmployee,
-    typeEmployee,
-    image,
-  }
+  useEffect(() => {
+    if (!userData) {
+      navigate("/");
+    }
+  }, [userData, navigate]);
+
+  const userWithProp: UserWithProp = {
+    ...userData,
+    user: userData?.user,
+  };
+
+  
 
   return (
     <Container>
-      <NavBar EmployeeProps={userInfo} />
+      <NavBar user={userWithProp} />
       {children}
     </Container>
-  )
-}
+  );
+};

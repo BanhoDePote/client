@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --mode development --open --config webpack.ts",
+    "dev": "webpack serve --mode development --open --config webpack.ts",
     "build": "webpack --mode development --config webpack.ts",
     "build:server": "docker-compose build & docker run --name $npm_package_name -p 80:80 -d $npm_package_name\\_nginx",
     "test": "jest",
@@ -13,12 +14,19 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "axios": "^1.2.4",
     "dotenv": "^10.0.0",
     "dotenv-webpack": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.7.0",
+    "react-spinners": "^0.13.8",
+    "react-toastify": "^9.1.2",
+    "redux": "^4.2.1",
+    "socket.io-client": "^4.6.1",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
@@ -40,7 +48,7 @@
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
-    "@types/react-router-dom": "^5.3.0",
+    "@types/react-router-dom": "^5.3.3",
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.14",
     "@types/webpack": "^5.28.0",

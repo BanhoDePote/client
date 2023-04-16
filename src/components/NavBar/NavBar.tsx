@@ -1,21 +1,23 @@
-import { EmployeeProps } from 'src/pages/Home/Home'
-import { Container } from './styles'
+import { Container } from './styles';
+import { User } from 'src/store';
 
 interface NavBarProps {
-  EmployeeProps: EmployeeProps
+  user: User;
 }
 
-// eslint-disable-next-line no-shadow
-export const NavBar: React.FC<NavBarProps> = ({ EmployeeProps }) => {
+export const NavBar: React.FC<NavBarProps> = (params) => {
+  const dataUser = params.user?.dataUser;
+
+
   return (
     <Container>
       <div>
         <h1>BanhoDePote</h1>
         <span>
-          {EmployeeProps.typeEmployee} {EmployeeProps.nameEmployee}
+          {dataUser?.user.employee} {dataUser?.user.name}
         </span>
       </div>
-      <img src={EmployeeProps.image} alt={EmployeeProps.nameEmployee} />
+      <img src="" alt="" />
     </Container>
-  )
-}
+  );
+};

@@ -1,4 +1,5 @@
 import { Component, ReactNode } from 'react'
+import styled from 'styled-components'
 
 interface Props {
   children: ReactNode
@@ -22,8 +23,18 @@ export default class ErrorBoundary extends Component<Props, State> {
     const { hasError } = this.state
     const { children } = this.props
     if (hasError) {
-      return <h1>Algo deu errado.</h1>
+      return <Container>Algo deu errado.</Container>
     }
     return children
   }
 }
+
+const Container = styled.div`
+  background-color: #810202;
+  width: 100%;
+  height: 100vh;
+
+display: flex;
+justify-content: center;
+align-items: center;
+`
