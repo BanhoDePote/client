@@ -24,6 +24,7 @@ const Login: React.FC = () => {
       .then(response => {
         toast.success('Sucesso ao Logar')
         dispatch({ type: 'SET_USER', payload: { dataUser:response.data } });
+        localStorage.setItem('user', JSON.stringify(response.data));
         navigate("/home");
       })
       .catch(error => {

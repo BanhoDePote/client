@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 import { User } from 'src/store';
 
@@ -5,16 +6,20 @@ interface NavBarProps {
   user: User;
 }
 
-export const NavBar: React.FC<NavBarProps> = (params) => {
-  const dataUser = params.user?.dataUser;
-
+export const NavBar: React.FC<NavBarProps> = (user:any) => {
+  
+  const data = user ? user.user : {
+    employee:"Cargo",
+    name:"Nome",
+  };
+  
 
   return (
     <Container>
       <div>
-        <h1>BanhoDePote</h1>
+        <h1><Link to="/home">BanhoDePote</Link></h1>
         <span>
-          {dataUser?.user.employee} {dataUser?.user.name}
+          {data?.user.employee} {data?.user.name}
         </span>
       </div>
       <img src="" alt="" />

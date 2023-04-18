@@ -3,23 +3,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import userReducer from '../reducers/userReducers';
 
 const rootReducer = combineReducers({
-  data: userReducer,
+  userReducer: userReducer,
 });
 
-export const store = configureStore({reducer:rootReducer});
+export const store = configureStore({reducer:userReducer});
 
 export default store;
 
 export interface User {
   data: any;
-  dataUser: {
-    data: any;
-    token: string;
-    user: {
-      id: number;
-      name:string;
-      email: string;
-      employee:string;
-    };
-  };
+  
 }

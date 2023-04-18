@@ -14,6 +14,11 @@ export const Container = styled.header`
   left: 0;
   top: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  a{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+  }
   img {
     width: 60px;
     height: 60px;

@@ -37,12 +37,11 @@ export const AddTable:React.FC =() =>{
 const Content = styled.div`
     margin-top: 10px;
     width: 100%;
-    height: 500px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     overflow: scroll;
-
+    max-width: 500px;
 `
 
 const TableId = styled(Link)`
@@ -52,6 +51,9 @@ const TableId = styled(Link)`
         border: 1px solid #8F8F8F;
         display: flex;
         justify-content: center;
+        text-decoration: none;
+        border-radius: 6px;
+        color: #363636;
         align-items: center;
         &:hover{
         filter: brightness(0.8);

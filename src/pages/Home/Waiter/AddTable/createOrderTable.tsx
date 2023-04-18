@@ -50,7 +50,7 @@ const ButtonOption = styled.div`
     justify-content: center;
     align-items: center;
     color: white;
-
+    
     span{
         position: absolute;
         text-align: center;

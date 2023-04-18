@@ -4,11 +4,11 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { socket } from 'src/utils/wsocket'
 
-export const Waiter = ({ user }: any) => {
+export const Waiter = ({user} : any) => {
   const [mesas, setMesas] = useState(null)
   const [mesasSocket, setMesasSocket] = useState([])
-
   useEffect(() => {
+    console.log(user, user.token)
     const config = {
       headers: { Authorization: `Bearer ${user.token}` },
     }
@@ -17,7 +17,6 @@ export const Waiter = ({ user }: any) => {
       .then(data => setMesas(data.data))
 
     socket.on('orders', (data) => {
-      console.log("soket", data)
       setMesasSocket(data)
     })
 
@@ -27,7 +26,7 @@ export const Waiter = ({ user }: any) => {
   }, [user.token])
 
   useEffect(() => {
-    
+    console.log(mesasSocket)
   }, [mesasSocket])
 
   return (
@@ -48,7 +47,6 @@ export const Waiter = ({ user }: any) => {
 const Table = ({data}:{id:number, tableId:number}) =>{
 
 
-  console.log(data)
   return <Mesa key={data.id}> Mesa {data.tableId}</Mesa>
 
 }
