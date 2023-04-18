@@ -15,11 +15,13 @@ export const Container = styled.header`
   top: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #f4f4f4;
+    margin-right: 10px;
+    border: 3px solid #d4d4d4;
     background-color: #ffffff;
+    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.55));
   }
 `

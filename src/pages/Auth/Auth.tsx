@@ -27,10 +27,7 @@ const Login: React.FC = () => {
         navigate("/home");
       })
       .catch(error => {
-        const errors = error.response.data.details
-        for (error of errors) {
-          toast.error(error)
-        }
+        toast.error("Error ao fazer o Loguin")
       })
   }
 
