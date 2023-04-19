@@ -1,16 +1,22 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom"
+import { Modal } from "src/components/Modal";
 import { Section } from "src/components/Page/Page";
 import styled from "styled-components"
+import { TypesOrders } from "./typesOrders";
 
 
 
 export const CreateOrderTable = () =>{
     const {tableId} = useParams();
-
+    const [modalOpen, setModalOpen] = useState(false);
 
     return <Section>
             <TableTitle>Mesa {tableId}</TableTitle>
             <DivButtons>
+                <TypesOrders modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+                <ButtonOption onClick={()=>{setModalOpen(true)}}>X<span>Adicionar Pedido</span></ButtonOption>
+                <ButtonOption>X<span>Adicionar Pedido</span></ButtonOption>
                 <ButtonOption>X<span>Adicionar Pedido</span></ButtonOption>
             </DivButtons>
         </Section>
@@ -57,5 +63,10 @@ const ButtonOption = styled.div`
         bottom: -15px;
         color: #333131;
         font-size: x-small;
+    }
+
+    &:hover{
+        filter: brightness(2);
+        cursor: pointer;
     }
 `

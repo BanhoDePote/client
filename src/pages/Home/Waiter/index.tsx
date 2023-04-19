@@ -1,33 +1,40 @@
 import React, { useEffect, useState } from 'react'
-import { AddTable } from './AddTable/addTable'
+import { AddTable } from './AddTable'
 import axios from 'axios'
 import styled from 'styled-components'
 import { socket } from 'src/utils/wsocket'
+import { toast } from 'react-toastify'
+import { useAxios } from 'src/hooks/useApi'
+import { Loading } from 'src/routes/components/ErrorBoundary/Loading'
 
 export const Waiter = ({user} : any) => {
   const [mesas, setMesas] = useState(null)
   const [mesasSocket, setMesasSocket] = useState([])
-  useEffect(() => {
-    console.log(user, user.token)
-    const config = {
-      headers: { Authorization: `Bearer ${user.token}` },
+  const { response, loading, error, sendData } = useAxios({
+    method: "GET",
+    url: `/waiter`,
+    headers: {
+      accept: '*/*',
+      Authorization: 'Bearer ' + user.token
     }
-    axios
-      .get('http://localhost:4000/waiter/', config)
-      .then(data => setMesas(data.data))
+  });
 
+
+  useEffect(() => {
     socket.on('orders', (data) => {
+      console.log("sauhsauh",data)
       setMesasSocket(data)
     })
-
+  
     return () => {
       socket.off('orders')
     }
-  }, [user.token])
-
-  useEffect(() => {
-    console.log(mesasSocket)
   }, [mesasSocket])
+  
+
+  const orders = mesasSocket?.map((mesa) => {
+    return <Table data={mesa}/>
+  })
 
   return (
     <>
@@ -36,9 +43,7 @@ export const Waiter = ({user} : any) => {
         <div className='border'>
           <span>Minhas Mesas</span>
         </div>
-        {mesasSocket?.map((mesa) => {
-            return <Table data={mesa}/>
-          })}
+        {orders ? orders : <Loading />}
       </Tables>
     </>
   )
