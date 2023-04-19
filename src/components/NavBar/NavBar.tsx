@@ -11,6 +11,7 @@ export const NavBar: React.FC<NavBarProps> = (user:any) => {
   const data = user ? user.user : {
     employee:"Cargo",
     name:"Nome",
+    img:"https://cdn-icons-png.flaticon.com/512/149/149071.png"
   };
   
 
@@ -22,7 +23,7 @@ export const NavBar: React.FC<NavBarProps> = (user:any) => {
           {data?.user.employee} {data?.user.name}
         </span>
       </div>
-      <img src="" alt="" />
+      <img src={data?.user.img} alt={data?.user.name} />
     </Container>
   );
 };
