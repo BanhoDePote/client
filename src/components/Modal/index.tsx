@@ -12,19 +12,24 @@ const ModalContainer = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 253, 253, 0.863);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 20px;
 `;
 
 const ModalContent = styled.div`
-  background-color: white;
+  background-color: #EB7407;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
+  font-size: 0.8rem;
+  width: 100%;
+  border: 1px solid #8f4501;
+  font-family: 'Courier New', Courier, monospace;
   .close{
     width: 30px;
     height: 30px;

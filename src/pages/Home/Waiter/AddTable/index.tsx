@@ -4,7 +4,7 @@ import {GrAddCircle} from "react-icons/gr";
 import { Modal } from "src/components/Modal";
 import { Link } from "react-router-dom";
 
-export const AddTable:React.FC =() =>{
+export const AddTable:React.FC =({user}) =>{
 
     const [modalOpen, setModalOpen] = useState(false);
 
