@@ -10,6 +10,7 @@ import { TypesOrders } from "./typesOrders";
 export const CreateOrderTable = () =>{
     const {tableId} = useParams();
     const [modalOpen, setModalOpen] = useState(false);
+    
 
     return <Section>
             <TableTitle>Mesa {tableId}</TableTitle>

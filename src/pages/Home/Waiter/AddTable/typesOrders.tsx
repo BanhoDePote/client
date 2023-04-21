@@ -28,6 +28,16 @@ export const TypesOrders = ({ modalOpen, setModalOpen }) => {
     console.log(order)
   }, [dishes, category, order])
 
+  const handleQuantityChange = (action, index) => {
+    const updatedOrder = [...order];
+    if (action === 'add') {
+      updatedOrder[index].quantity += 1;
+    } else if (action === 'remove' && updatedOrder[index].quantity > 1) {
+      updatedOrder[index].quantity -= 1;
+    }
+    setOrder(updatedOrder);
+  };
+
   const SelectDish = () => {
     return (
       <Content>
@@ -44,9 +54,16 @@ export const TypesOrders = ({ modalOpen, setModalOpen }) => {
           ))}
         </TypesDish>
         <ListOrders>
-          {order.map(item => (
-            <span>{item.name}</span>
-          ))}
+        {order.map((item, index) => (
+  <div key={index}>
+    {item.name}
+    <div className='buttons'>
+      <button onClick={() => handleQuantityChange('remove', index)}>-</button>
+      {item.quantity}
+      <button onClick={() => handleQuantityChange('add', index)}>+</button>
+    </div>
+  </div>
+))}
         </ListOrders>
       </Content>
     )
@@ -57,7 +74,7 @@ export const TypesOrders = ({ modalOpen, setModalOpen }) => {
       if (order.some(item => item.id === dish.id)) {
         setOrder(prevOrders => prevOrders.filter(item => item.id !== dish.id)) 
       } else {
-        setOrder(prevOrders => [...prevOrders, dish]) 
+        setOrder(prevOrders => [...prevOrders,  {...dish, quantity: 1 } ]) 
       }
     }
 
@@ -67,7 +84,7 @@ export const TypesOrders = ({ modalOpen, setModalOpen }) => {
         <ListDish>
           {category.dishes.map(dish => {
             return (
-              <ItemBox onClick={() => handleClick(dish)}  color={order.includes(dish)}>
+<ItemBox onClick={() => handleClick(dish)} color={order.some((item) => item.id === dish.id)}>
                 <span>{dish.name}</span>
                 <span>{dish.price.toFixed(2).replace('.', ',')} R$</span>
               </ItemBox>
@@ -163,4 +180,11 @@ const ListOrders = styled.div`
   gap: 3px;
   padding: 4px;
   overflow-y: scroll;
+
+  div{
+    display: flex;
+    width: 100%;
+    
+
+  }
 `
