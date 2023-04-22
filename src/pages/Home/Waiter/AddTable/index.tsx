@@ -4,7 +4,7 @@ import {GrAddCircle} from "react-icons/gr";
 import { Modal } from "src/components/Modal";
 import { Link } from "react-router-dom";
 
-export const AddTable:React.FC =({user}) =>{
+export const AddTable:React.FC =({user}:any) =>{
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -22,7 +22,6 @@ export const AddTable:React.FC =({user}) =>{
         </AddButton>
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
             <h2>Selecione a Mesa:</h2>
-            <p>Conteúdo do modal</p>
             <Content>
                 {numbers.map((box)=>{
                     return <TableId to={`/waiter/${box}`}>{box}</TableId>
@@ -42,6 +41,7 @@ const Content = styled.div`
     gap: 10px;
     overflow: scroll;
     max-width: 500px;
+    justify-content: center;
 `
 
 const TableId = styled(Link)`

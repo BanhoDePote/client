@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { Modal } from "src/components/Modal";
 import { Section } from "src/components/Page/Page";
 import styled from "styled-components"
-import { TypesOrders } from "./typesOrders";
+import { TypesOrders } from "./listOrders";
 
 
 

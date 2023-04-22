@@ -17,11 +17,12 @@ const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  padding: 20px;
+  padding: 5px;
 `;
 
 const ModalContent = styled.div`
   background-color: #EB7407;
+  max-width: 500px;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -30,6 +31,10 @@ const ModalContent = styled.div`
   width: 100%;
   border: 1px solid #8f4501;
   font-family: 'Courier New', Courier, monospace;
+  h2{
+  color: #e6dede;
+
+  }
   .close{
     width: 30px;
     height: 30px;
