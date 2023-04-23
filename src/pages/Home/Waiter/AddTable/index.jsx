@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import {GrAddCircle} from "react-icons/gr";
-import { Modal } from "src/components/Modal";
+import { Modal } from "../../../../components/Modal";
 import { Link } from "react-router-dom";
 
-export const AddTable:React.FC =({user}:any) =>{
+export const AddTable=({user}) =>{
 
     const [modalOpen, setModalOpen] = useState(false);
 

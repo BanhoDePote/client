@@ -1,4 +1,4 @@
-import { TextExample } from 'src/components/TextExample/TextExample'
+import { TextExample } from '../../components/TextExample/TextExample'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Container, EmployeeForm } from './styles'
@@ -6,14 +6,14 @@ import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-const Login: React.FC = () => {
+const Login= () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     
     axios
@@ -51,6 +51,8 @@ const Login: React.FC = () => {
     </EmployeeForm>
   )
 }
+
+
 export const Auth = () => {
   useEffect(() => {
     const username = localStorage.getItem('username')

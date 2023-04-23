@@ -1,16 +1,9 @@
 import { Component, ReactNode } from 'react'
 import styled from 'styled-components'
 
-interface Props {
-  children: ReactNode
-}
 
-interface State {
-  hasError: boolean
-}
-
-export default class ErrorBoundary extends Component<Props, State> {
-  constructor(props: { children: ReactNode }) {
+export default class ErrorBoundary extends Component {
+  constructor(props) {
     super(props)
     this.state = { hasError: false }
   }

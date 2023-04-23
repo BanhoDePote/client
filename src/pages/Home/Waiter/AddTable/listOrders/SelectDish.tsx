@@ -24,7 +24,7 @@ export const SelectDish = ({order, setOrder, setCategory, dishes}:Orders) => {
       <Content>
         <h2>Adicionar Pedido</h2>
         <TypesDish>
-          {dishes?.map(category => (
+          {dishes?.map((category:any) => (
             <span
               onClick={() => {
                 setCategory(category)

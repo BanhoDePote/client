@@ -1,13 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom"
-import { Modal } from "src/components/Modal";
-import { Section } from "src/components/Page/Page";
+import { Section } from "../../../../../components/Page/Page";
 import styled from "styled-components"
-import { TypesOrders } from "./listOrders";
+import { TypesOrders } from "../listOrders";
 
 
 
-export const CreateOrderTable = () =>{
+export const CreateOrderTables:React.FC = () =>{
     const {tableId} = useParams();
     const [modalOpen, setModalOpen] = useState(false);
     

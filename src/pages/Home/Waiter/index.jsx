@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { AddTable } from './AddTable'
-import axios from 'axios'
 import styled from 'styled-components'
-import { socket } from 'src/utils/wsocket'
-import { toast } from 'react-toastify'
-import { useAxios } from 'src/hooks/useApi'
-import { Loading } from 'src/routes/components/ErrorBoundary/Loading'
+import { socket } from '../../../utils/wsocket'
+import { useAxios } from '../../../hooks/useApi'
+import { Loading } from '../../../routes/components/ErrorBoundary/Loading'
 
-export const Waiter = ({user} : any) => {
+export const Waiter = ({user}) => {
   const [mesas, setMesas] = useState(null)
   const [mesasSocket, setMesasSocket] = useState([])
   const { response, loading, error, sendData } = useAxios({
@@ -49,7 +47,7 @@ export const Waiter = ({user} : any) => {
   )
 }
 
-const Table = ({data}:{id:number, tableId:number}) =>{
+const Table = ({data}) =>{
 
 
   return <Mesa key={data.id}> Mesa {data.tableId}</Mesa>

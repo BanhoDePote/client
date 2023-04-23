@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Waiter } from './Waiter'
 import { useSelector } from 'react-redux'
-import { User } from 'src/store'
-import { Section } from 'src/components/Page/Page'
+import { Section } from '../../components/Page/Page'
 
-interface UserWithProp extends User {
-  user: {
-    name: string
-    employee: string
-    // outras propriedades do usuário
-  }
-}
 
 export function Home() {
-  const dataUser = useSelector((state: User) => state?.data?.dataUser);
-  const [user, setUser] = useState<UserWithProp | null>(dataUser)
+  const dataUser = useSelector((state) => state?.data?.dataUser);
+  const [user, setUser] = useState(dataUser)
   console.log("home", dataUser)
 
   const screenEmployee = [

@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -14,6 +15,6 @@ const Container = styled.div`
   background-color: #b30505;
 `
 
-export const GenericNotFound = () => {
+export const GenericNotFound:React.FC  = () => {
   return <Container><h1>404 - Not found</h1></Container>
 }

@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { Modal } from 'src/components/Modal'
-import { useAxios } from 'src/hooks/useApi'
-import { User } from 'src/store'
+import { Modal } from '../../../../../components/Modal'
+import { useAxios } from '../../../../../hooks/useApi'
 import styled from 'styled-components'
 import { ChosenDish } from './chosenDish'
 import { SelectDish } from './SelectDish'
 
 export const TypesOrders = ({ modalOpen, setModalOpen }) => {
   const [order, setOrder] = useState([])
-  const dataUser: User = useSelector(state => state?.data?.dataUser)
+  const dataUser = useSelector((state) => state?.data?.dataUser)
   const [category, setCategory] = useState(null)
   const navigate = useNavigate()
 

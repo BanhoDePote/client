@@ -9,15 +9,3 @@ const rootReducer = combineReducers({
 export const store = configureStore({reducer:userReducer});
 
 export default store;
-
-export interface User {
-  user:{
-    id:number,
-    email:string,
-    img:string,
-    employee:string
-
-  },
-  token:string
-  
-}

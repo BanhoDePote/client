@@ -1,21 +1,14 @@
 import styled from "styled-components"
 import { Content } from "."
 
-export interface Orders{
-    order:Array<any>;
-    setOrder:Function;
-    setCategory:Function;
-    category?:any;
-    dishes?:any
-}
 
-export const ChosenDish = ({order, setOrder, setCategory, category}:Orders) => {
+export const ChosenDish = ({order, setOrder, setCategory, category}) => {
     
-    const handleClick = (dish:any) => {
+    const handleClick = (dish) => {
       if (order.some(item => item.id === dish.id)) {
-        setOrder((prevOrders: any[]) => prevOrders.filter(item => item.id !== dish.id))
+        setOrder((prevOrders) => prevOrders.filter(item => item.id !== dish.id))
       } else {
-        setOrder((prevOrders: any[]) => [...prevOrders, { ...dish, quantity: 1 }])
+        setOrder((prevOrders) => [...prevOrders, { ...dish, quantity: 1 }])
       }
     }
 
