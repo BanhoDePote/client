@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { ChosenDish } from './chosenDish'
 import { SelectDish } from './SelectDish'
 
-export const TypesOrders = ({ modalOpen, setModalOpen }) => {
+export const TypesOrders = ({ modalOpen, setModalOpen , tableId}) => {
   const [order, setOrder] = useState([])
   const dataUser = useSelector((state) => state?.data?.dataUser)
   const [category, setCategory] = useState(null)
@@ -22,6 +22,8 @@ export const TypesOrders = ({ modalOpen, setModalOpen }) => {
     },
   })
 
+
+
   const dishes = response?.data
   useEffect(() => {
     if (!dataUser) navigate('/home')
@@ -31,7 +33,7 @@ export const TypesOrders = ({ modalOpen, setModalOpen }) => {
 
 
   const selectDish = category ? <ChosenDish order={order} setOrder={setOrder} category={category} setCategory={setCategory} /> 
-                              : <SelectDish order={order} setOrder={setOrder} dishes={dishes} setCategory={setCategory} /> 
+                              : <SelectDish tableId={tableId} dataUser={dataUser} order={order} setOrder={setOrder} dishes={dishes} setCategory={setCategory} /> 
 
   return (
     <Modal

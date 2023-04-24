@@ -1,13 +1,17 @@
 import styled from "styled-components"
 import { Content } from "."
-import { Orders } from "./chosenDish"
+import React from "react"
+import { useCreateOrder } from "../../../../../services/createOrder"
 
 
 
-export const SelectDish = ({order, setOrder, setCategory, dishes}:Orders) => {
+export const SelectDish = ({order, setOrder, setCategory, dishes, dataUser, tableId}) => {
+
+  const [createOrder, result, isLoading, error] = useCreateOrder(tableId, dataUser?.token, order);
 
 
-  const handleQuantityChange = (action:string, index:number) => {
+
+  const handleQuantityChange = (action, index) => {
     const updatedOrder = [...order]
     if (action === 'add') {
       updatedOrder[index].quantity += 1
@@ -22,10 +26,10 @@ export const SelectDish = ({order, setOrder, setCategory, dishes}:Orders) => {
 
     return (
       <Content>
-        <h2>Adicionar Pedido</h2>
+        <h2>Adicionar Pedido Mesa #{tableId}</h2>
         <TypesDish>
-          {dishes?.map((category:any) => (
-            <span
+          {dishes?.map((category, index) => (
+            <span key={index}
               onClick={() => {
                 setCategory(category)
               }}
@@ -65,8 +69,8 @@ export const SelectDish = ({order, setOrder, setCategory, dishes}:Orders) => {
           </div>
         </ListOrders>
         <div className='buttonsOrder'>
-                <button>Criar Pedido</button>
-                <button>Cancelar Pedido</button>
+                <button onClick={createOrder}>Criar Pedido</button>
+                <button onClick={()=>setOrder([])}>Limpar Pedido</button>
         </div>
       </Content>
     )
