@@ -22,6 +22,7 @@ export function useCreateOrder(tableId, token, order) {
       });
       setResult(data);
     } catch (error) {
+      console.log(error)
       setError(error);
     } finally {
       setIsLoading(false);

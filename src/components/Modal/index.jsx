@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-interface Props {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -16,7 +12,7 @@ const ModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1;
   padding: 5px;
 `;
 
@@ -52,7 +48,7 @@ const ModalContent = styled.div`
   }
 `;
 
-export const Modal: FC<Props> = ({ isOpen, onClose, children }) => {
+export const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (

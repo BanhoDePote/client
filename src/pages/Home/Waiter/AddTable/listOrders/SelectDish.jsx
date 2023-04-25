@@ -2,13 +2,15 @@ import styled from "styled-components"
 import { Content } from "."
 import React from "react"
 import { useCreateOrder } from "../../../../../services/createOrder"
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 
 
 export const SelectDish = ({order, setOrder, setCategory, dishes, dataUser, tableId}) => {
 
   const [createOrder, result, isLoading, error] = useCreateOrder(tableId, dataUser?.token, order);
-
+  const navigate = useNavigate();
 
 
   const handleQuantityChange = (action, index) => {
@@ -23,7 +25,17 @@ export const SelectDish = ({order, setOrder, setCategory, dishes, dataUser, tabl
     setOrder(updatedOrder)
   }
 
+  const SendOrder = () =>{
+    try{
+    
+      createOrder().then(() => navigate("/home"));
+      
+    }catch{
+      toast.error("Problema ao enviar Pedido!");
+    }
+  }
 
+  console.log(result)
     return (
       <Content>
         <h2>Adicionar Pedido Mesa #{tableId}</h2>
@@ -69,7 +81,7 @@ export const SelectDish = ({order, setOrder, setCategory, dishes, dataUser, tabl
           </div>
         </ListOrders>
         <div className='buttonsOrder'>
-                <button onClick={createOrder}>Criar Pedido</button>
+                <button onClick={()=>SendOrder()}>Criar Pedido</button>
                 <button onClick={()=>setOrder([])}>Limpar Pedido</button>
         </div>
       </Content>
