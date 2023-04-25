@@ -28,7 +28,10 @@ export const SelectDish = ({order, setOrder, setCategory, dishes, dataUser, tabl
   const SendOrder = () =>{
     try{
     
-      createOrder().then(() => navigate("/home"));
+      createOrder().then(() => {
+        toast.success("Pedido criado com Sucesso!")
+        navigate("/home")
+      });
       
     }catch{
       toast.error("Problema ao enviar Pedido!");
