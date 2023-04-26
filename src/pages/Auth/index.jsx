@@ -17,7 +17,7 @@ const Login= () => {
     e.preventDefault()
     
     axios
-      .post('http://localhost:4000/auth/sign-in', {
+      .post('/auth/sign-in', {
         email: username,
         password,
       })
