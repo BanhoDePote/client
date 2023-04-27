@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios from 'axios';
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_API;
 
-export const useAxios = (axiosParams: AxiosRequestConfig) => {
-  const [response, setResponse] = useState<AxiosResponse>();
-  const [error, setError] = useState<AxiosError>();
+
+export const useAxios = (axiosParams) => {
+  const [response, setResponse] = useState();
+  const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
 
- const fetchData = async (params: AxiosRequestConfig) => {
+ const fetchData = async (params) => {
     try {
       const result = await axios.request(params);
       setResponse(result);

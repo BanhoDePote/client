@@ -12,13 +12,12 @@ const Login= () => {
   const [error, setError] = useState('')
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const SERVE_API = import.meta.env.VITE_SERVER_API;
   
   const handleSubmit = async (e) => {
     e.preventDefault()
     
     axios
-      .post(SERVE_API+'/auth/sign-in', {
+      .post('/auth/sign-in', {
         email: username,
         password,
       })
