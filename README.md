@@ -1,7 +1,9 @@
 # OrderEasy
 
 ## Descrição
-OrderEasy é uma aplicação frontend que permite aos usuários fazer pedidos de comida online e receber em casa. Este projeto é desenvolvido em React e é parte do projeto final do Bootcamp Fullstack da [Nome da escola/bootcamp].
+O OrderEasy é um aplicativo desenvolvido para auxiliar restaurantes na comunicação entre garçons, cozinha e caixa, além de ajudar na administração geral do estabelecimento. Foi criado com o objetivo de facilitar o fluxo de trabalho e otimizar o tempo de cada um dos setores, tornando a experiência dos clientes mais agradável.
+
+Com o OrderEasy, os garçons podem realizar pedidos pelo próprio aplicativo, que serão encaminhados diretamente para a cozinha, sem a necessidade de se deslocar até ela. O sistema também permite que o caixa faça o registro dos pedidos e controle de mesas, assim como o acompanhamento do status dos pedidos.
 
 ## Screenshots do Figma
 Aqui estão as telas do aplicativo OrderEasy criadas no Figma:
