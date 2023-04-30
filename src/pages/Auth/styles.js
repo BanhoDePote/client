@@ -16,7 +16,7 @@ export const EmployeeForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   span {
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -34,6 +34,7 @@ export const EmployeeForm = styled.form`
     font-size: larger;
     text-align: center;
     margin-bottom: 22px;
+    width: 100%;
   }
 
   button {
@@ -50,7 +51,7 @@ export const EmployeeForm = styled.form`
     cursor: pointer;
 
     &:hover {
-      filter: saturate(0.6);
+      filter: brightness(1.3)
     }
   }
 `

@@ -5,7 +5,7 @@ import {
   Routes as RoutesReactRouterDom,
 } from 'react-router-dom'
 import { Home, GenericNotFound } from './paths'
-import { Loading } from './components/ErrorBoundary/Loading'
+import { Loading } from '../components/Loading'
 import { Waiter } from '../pages/Home/Waiter'
 import { Auth } from '../pages/Auth'
 import {CreateOrderTables} from '../pages/Home/Waiter/AddTable/createOrderTables'
