@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { socket } from '../../../utils/wsocket'
 import { useAxios } from '../../../hooks/useApi'
 import { Loading } from '../../../components/Loading'
+import { Link } from 'react-router-dom'
 
 export const Waiter = ({user}) => {
   const [mesas, setMesas] = useState(null)
@@ -20,17 +21,16 @@ export const Waiter = ({user}) => {
 
   useEffect(() => {
     socket.on('orders', (data) => {
-      console.log("sauhsauh",data)
       setMesasSocket(data)
     })
   
     return () => {
       socket.off('orders')
     }
-  }, [mesasSocket])
+  }, [])
   
+  const orders = Object.keys(mesasSocket)?.map((mesa) => {
 
-  const orders = mesasSocket?.map((mesa) => {
     return <Table data={mesa}/>
   })
 
@@ -49,8 +49,7 @@ export const Waiter = ({user}) => {
 
 const Table = ({data}) =>{
 
-
-  return <Mesa key={data.id}> Mesa {data.tableId}</Mesa>
+  return <Mesa key={data.id} to={`/waiter/${data}`}>Mesa #{data.toUpperCase()}</Mesa>
 
 }
 
@@ -73,7 +72,9 @@ const Tables = styled.div`
   }
 `
 
-const Mesa = styled.div`
+const Mesa = styled(Link)`
+text-decoration: none;
+color: black;
   width: 80%;
   height: 30px;
   background-color: #D9D9D9;
