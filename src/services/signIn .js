@@ -14,12 +14,7 @@ export function useCreateOrder(tableId, token, order) {
           dishId: item.id, 
           quantity: item.quantity
         }))
-      }, {
-        headers: {
-          accept: '*/*',
-          Authorization: 'Bearer ' + token
-        }
-      });
+      }, {  });
       setResult(data);
     } catch (error) {
       console.log(error)

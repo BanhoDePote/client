@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Content } from ".";
+import { Content } from "./DishOptions";
 import React, { useState } from "react";
 import { useCreateOrder } from "../../../../../services/createOrder";
 import { useNavigate } from "react-router-dom";

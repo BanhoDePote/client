@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Content } from "."
+import { Content } from "./DishOptions"
 
 
 export const ChosenDish = ({order, setOrder, setCategory, category}) => {

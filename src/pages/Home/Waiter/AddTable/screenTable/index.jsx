@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Section } from "../../../../../components/Page/Page";
 import styled from "styled-components";
-import { TypesOrders } from "../listOrders";
+import { DishOptions } from "./DishOptions";
 import { AiOutlineSolution } from "react-icons/ai";
+import { useAxios } from "../../../../../hooks/useApi";
 
-export const CreateOrderTables = () => {
+export const ScreenTable = () => {
   const { tableId } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
+  const { response, loading, error } = useAxios({
+    method: 'GET',
+    url: `/waiter/table/${tableId}`
+  })
+
+  console.log("response", response)
+
 
   return (
     <Section>
       <TableTitle>Mesa {tableId}</TableTitle>
       <DivButtons>
-        <TypesOrders modalOpen={modalOpen} tableId={tableId} setModalOpen={setModalOpen} />
+        <DishOptions modalOpen={modalOpen} tableId={tableId} setModalOpen={setModalOpen} />
         <ButtonOption
           onClick={() => {
             setModalOpen(true);
@@ -21,12 +29,6 @@ export const CreateOrderTables = () => {
         >
           <AiOutlineSolution size={50} />
           <span>Adicionar Pedido</span>
-        </ButtonOption>
-        <ButtonOption>
-          X<span>Adicionar Pedido</span>
-        </ButtonOption>
-        <ButtonOption>
-          X<span>Adicionar Pedido</span>
         </ButtonOption>
       </DivButtons>
     </Section>

@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../../../../components/Modal'
 import { useAxios } from '../../../../../hooks/useApi'
 import styled from 'styled-components'
-import { ChosenDish } from './chosenDish'
-import { SelectDish } from './SelectDish'
+import { ChosenDish } from './listOptionsDish'
+import { SelectDish } from './formOrder'
 
-export const TypesOrders = ({ modalOpen, setModalOpen , tableId}) => {
+export const DishOptions = ({ modalOpen, setModalOpen , tableId}) => {
   const [order, setOrder] = useState([])
   const dataUser = useSelector((state) => state?.data?.dataUser)
   const [category, setCategory] = useState(null)

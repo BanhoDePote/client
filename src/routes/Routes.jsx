@@ -8,7 +8,7 @@ import { Home, GenericNotFound } from './paths'
 import { Loading } from '../components/Loading'
 import { Waiter } from '../pages/Home/Waiter'
 import { Auth } from '../pages/Auth'
-import {CreateOrderTables} from '../pages/Home/Waiter/AddTable/createOrderTables'
+import {ScreenTable} from '../pages/Home/Waiter/AddTable/screenTable'
 
 export const Routes = () => {
   return (
@@ -17,7 +17,7 @@ export const Routes = () => {
         <Route path="/" element={<Auth />} />
         <Route path="/home" element={<Home />} />
         <Route path="/waiter" element={<Waiter/>} />
-        <Route path="/waiter/:tableId" element={<CreateOrderTables/>} />
+        <Route path="/waiter/:tableId" element={<ScreenTable/>} />
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/404" element={<GenericNotFound />} />
       </RoutesReactRouterDom>

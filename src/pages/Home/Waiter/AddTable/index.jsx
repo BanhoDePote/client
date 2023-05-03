@@ -24,7 +24,6 @@ export const AddTable=({user}) =>{
             <h2>Selecione a Mesa:</h2>
             <Content>
                 {numbers.map((box)=>{
-                    console.log("dasdsa", box)
                     return <TableId to={`/waiter/${box}`}>{box}</TableId>
                 })}
             </Content>
