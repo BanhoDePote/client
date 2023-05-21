@@ -48,7 +48,9 @@ export const Waiter = ({user}) => {
 }
 
 const Table = ({data}) =>{
-  return <Mesa key={data.tableId} to={`/waiter/${data.tableId}`}>Mesa #{data.tableId}</Mesa>
+  return <Mesa key={data.tableId} to={`/waiter/${data.tableId}`}
+  state={data}
+  >Mesa #{data.tableId}</Mesa>
 
 }
 

@@ -16,9 +16,9 @@ export const ChosenDish = ({order, setOrder, setCategory, category}) => {
       <Content>
         <h2>{category?.name}</h2>
         <ListDish>
-          {category.dishes.map(dish => {
+          {category.dishes.map((dish, index) => {
             return (
-              <ItemBox
+              <ItemBox key={index}
                 onClick={() => handleClick(dish)}
                 color={order.some(item => item.id === dish.id)}
               >

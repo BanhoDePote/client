@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Section } from "../../../../../components/Page/Page";
 import styled from "styled-components";
 import { DishOptions } from "./DishOptions";
@@ -10,12 +10,11 @@ import ListOrdersDish from "../../../../../components/ListOrdersDish";
 export const ScreenTable = () => {
   const { tableId } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
-  const { response, loading, error } = useAxios({
-    method: 'GET',
-    url: `/waiter/table/${tableId}`
-  })
 
-  console.log("response", response)
+  const location = useLocation();
+  const data = location.state;
+
+  console.log("response", data)
 
 
   return (
@@ -32,7 +31,7 @@ export const ScreenTable = () => {
           <span>Adicionar Pedido</span>
         </ButtonOption>
       </DivButtons>
-      <ListOrdersDish/>
+      <ListOrdersDish orders={data}/>
     </Section>
   );
 };
