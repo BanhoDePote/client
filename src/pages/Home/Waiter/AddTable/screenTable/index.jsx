@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { DishOptions } from "./DishOptions";
 import { AiOutlineSolution } from "react-icons/ai";
 import { useAxios } from "../../../../../hooks/useApi";
+import ListOrdersDish from "../../../../../components/ListOrdersDish";
 
 export const ScreenTable = () => {
   const { tableId } = useParams();
@@ -31,6 +32,7 @@ export const ScreenTable = () => {
           <span>Adicionar Pedido</span>
         </ButtonOption>
       </DivButtons>
+      <ListOrdersDish/>
     </Section>
   );
 };
@@ -53,6 +55,7 @@ const DivButtons = styled.div`
   display: flex;
   justify-content: center;
   gap: 45px;
+  margin-bottom: 40px;
 `;
 
 const ButtonOption = styled.div`

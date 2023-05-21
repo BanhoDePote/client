@@ -21,7 +21,7 @@ export const Waiter = ({user}) => {
 
   useEffect(() => {
     socket.on('orders', (data) => {
-      setMesasSocket(data)
+      setMesasSocket(data.orders)
     })
   
     return () => {
@@ -29,7 +29,7 @@ export const Waiter = ({user}) => {
     }
   }, [])
   
-  const orders = Object.keys(mesasSocket)?.map((mesa) => {
+  const orders = mesasSocket?.map((mesa) => {
 
     return <Table data={mesa}/>
   })
@@ -41,15 +41,14 @@ export const Waiter = ({user}) => {
         <div className='border'>
           <span>Minhas Mesas</span>
         </div>
-        {orders ? orders : <Loading />}
+        {!loading ? orders : <Loading />}
       </Tables>
     </>
   )
 }
 
 const Table = ({data}) =>{
-
-  return <Mesa key={data.id} to={`/waiter/${data}`}>Mesa #{data.toUpperCase()}</Mesa>
+  return <Mesa key={data.tableId} to={`/waiter/${data.tableId}`}>Mesa #{data.tableId}</Mesa>
 
 }
 
