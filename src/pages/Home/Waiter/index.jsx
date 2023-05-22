@@ -29,9 +29,9 @@ export const Waiter = ({user}) => {
     }
   }, [])
   
-  const orders = mesasSocket?.map((mesa) => {
+  const orders = mesasSocket?.map((mesa, index) => {
 
-    return <Table data={mesa}/>
+    return <Table key={index} data={mesa}/>
   })
 
   return (

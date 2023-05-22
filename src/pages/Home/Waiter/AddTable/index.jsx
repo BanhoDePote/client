@@ -23,8 +23,8 @@ export const AddTable=({user}) =>{
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
             <h2>Selecione a Mesa:</h2>
             <Content>
-                {numbers.map((box)=>{
-                    return <TableId to={`/waiter/${box}`}>{box}</TableId>
+                {numbers.map((box, index)=>{
+                    return <TableId key={index} to={`/waiter/${box}`}>{box}</TableId>
                 })}
             </Content>
         </Modal>

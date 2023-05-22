@@ -37,14 +37,14 @@ export default function ListOrdersDish({orders}) {
       <Table sx={{ minWidth: 300 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Nome do Prato</StyledTableCell>
+            <StyledTableCell sx={{ maxWidth: 4 }}>Nome do Prato</StyledTableCell>
             <StyledTableCell align="center" sx={{ maxWidth: 2 }}>Qtd.</StyledTableCell>
             <StyledTableCell align="center" sx={{ maxWidth: 2 }}>Status</StyledTableCell>
             <StyledTableCell align="right" sx={{ maxWidth: 2 }}>Preço</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders.dishes.map((dish, index) => (
+          {orders?.dishes.map((dish, index) => (
             <StyledTableRow key={index}>
               <StyledTableCell component="th" scope="row">
                 {dish.dish.name}
